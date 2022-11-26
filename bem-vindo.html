@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <form action="/bem-vindo.html" method="get" class="my-form">
+        <h1>Tarefa 3 - Formulário Bem vindo</h1>
+        <h2 id ="subtitle"></h2>
+    </form>
+</body>
+
+<script>
+    let message = document.getElementById("subtitle");
+    message.innerHTML = "Olá " + sessionStorage.getItem("usr") + " bem vindo";
+</script>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+    * {
+        font-family: 'Roboto', sans-serif;
+    }
+    body {
+        background: #3fff;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .my-form {
+        background: #fff;
+        border-radius: 5px;
+        min-height: 200px;
+        min-width: 200px;
+        padding: 20px;
+    }
+</style>
+
+</html>

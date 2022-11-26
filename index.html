@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <form action="./bem-vindo.html" method="post" class="my-form">
+        <h1>Tarefa 3 - Formulário Web</h1>
+        <div class="form-group">
+            <label for="usuario">Usuário</label>
+            <input name="usuario" id="usuario" type="text" placeholder="Digite aqui seu usuário" onchange="console.log('oi')" />
+        </div>
+        <div class="form-group">
+            <label for="senha">Senha</label>
+            <input name="senha" id="senha" type="password" placeholder="Digite aqui sua senha" />
+        </div>
+        <button id="botao-cancelar" type="button" class="btn-cancel">Cancelar</button>
+        <button id="botao-enviar" type="submit" class="btn-send">Salvar</button>
+    </form>
+</body>
+
+<script>
+
+    let usr = document.getElementById("usuario")
+    usr.addEventListener('change', atualizaUsuario);
+    function atualizaUsuario(e) {
+        sessionStorage.setItem("usr", e.target.value);
+    }
+
+    let senha = document.getElementById("senha")
+    senha.addEventListener('change', atualizaSenha);
+    function atualizaSenha(e) {
+        sessionStorage.setItem("pass", e.target.value);
+    }
+
+    let btnCancel = document.getElementById("botao-cancelar")
+    btnCancel.addEventListener('click', limpaCampos);
+    function limpaCampos(e) { 
+        usr.value = "";
+        senha.value = "";
+    }
+</script>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+    * {
+        font-family: 'Roboto', sans-serif;
+    }
+    body {
+        background: #3fff;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .my-form {
+        background: #fff;
+        border-radius: 5px;
+        min-height: 200px;
+        min-width: 200px;
+        padding: 20px;
+    }
+    .form-group {
+        display: flex;
+        flex-direction: column;
+    }
+    .form-group label {
+        font-weight: bold;
+        margin-top: 5px;
+        margin-bottom: 2px;
+    }
+
+    .form-group input {
+        border: none;
+        height: 30px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        margin-top: 8px;
+    }
+
+    .btn-send {
+        background: #3d74c8;
+        color: #fff;
+        font-weight: bold;
+        margin-top: 8px;
+        border: none;
+        padding: 15px 30px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        border-radius: 5px;
+    }
+
+    .btn-send:hover {
+        transition: .3s;
+        opacity: 0.75;
+    }
+    .btn-cancel {
+        background: #c4c4c4;
+        color: #000;
+        font-weight: bold;
+        margin-top: 8px;
+        border: none;
+        padding: 15px 30px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        border-radius: 5px;
+        margin-left: 15px;
+    }
+
+    .btn-cancel:hover {
+        transition: .3s;
+        opacity: 0.75;
+    }
+</style>
+
+</html>
